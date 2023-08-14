@@ -23,6 +23,12 @@ app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 
 app.use(requestLogger);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.post(
   '/signin',
   celebrate({
