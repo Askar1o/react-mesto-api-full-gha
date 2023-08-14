@@ -21,7 +21,7 @@ mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
+app.use(cors({ origin: ['http://localhost:3001', 'https://askario.nomoreparties.co'], credentials: true }));
 
 app.use(requestLogger);
 

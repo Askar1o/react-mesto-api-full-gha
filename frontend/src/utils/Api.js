@@ -114,7 +114,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "http://localhost:3000"
+  baseUrl: "https://api.askario.nomoreparties.co"
 });
 
 export default api;
