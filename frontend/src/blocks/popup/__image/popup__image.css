@@ -1,0 +1,17 @@
+.popup__image {
+  max-width: calc(100% - 80px);
+  min-height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__image {
+    max-width: 816px;
+    max-height: 540px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}

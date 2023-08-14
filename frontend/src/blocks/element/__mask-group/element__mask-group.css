@@ -1,0 +1,17 @@
+.element__mask-group {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  object-position: center;
+  min-height: 282px;
+}
+
+@media screen and (min-width: 1280px) {
+  .element__mask-group {
+    height: 282px;
+  }
+}
+
+.element__mask-group:hover {
+  cursor: pointer;
+}

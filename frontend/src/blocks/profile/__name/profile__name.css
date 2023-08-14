@@ -1,0 +1,14 @@
+.profile__name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: flex-end;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__name {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+}  

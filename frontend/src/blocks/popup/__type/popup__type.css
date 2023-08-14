@@ -1,0 +1,20 @@
+.popup__type {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 0.82;
+  border: none;
+  margin: 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  margin-bottom: 24px;
+  padding: 7px 0;
+}
+  
+@media screen and (min-width: 1280px) {
+  .popup__type:last-child {
+    margin-bottom: 50px;
+  }  
+  .popup__type {
+    width: 100%;
+  }
+}

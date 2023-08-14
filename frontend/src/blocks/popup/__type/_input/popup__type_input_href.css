@@ -1,0 +1,9 @@
+.popup__type_input_href {
+  margin-bottom: 45px;
+}
+  
+@media screen and (min-width: 1280px) {
+  .popup__type_input_href {
+    margin-bottom: 50px;
+  }
+}

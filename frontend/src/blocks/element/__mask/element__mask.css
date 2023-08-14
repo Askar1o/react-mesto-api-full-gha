@@ -1,0 +1,4 @@
+.element__mask {
+  display: flex;
+  position: relative;
+}

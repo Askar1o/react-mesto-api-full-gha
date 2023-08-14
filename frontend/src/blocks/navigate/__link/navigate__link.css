@@ -1,0 +1,13 @@
+.navigate__link {
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  height: 22px;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.navigate__link:hover {
+  opacity: 0.6;
+}

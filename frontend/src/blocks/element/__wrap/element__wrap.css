@@ -1,0 +1,7 @@
+.element__wrap {
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  padding: 27px 15px 24px 21px;
+  display: flex;
+  justify-content: space-between;
+}

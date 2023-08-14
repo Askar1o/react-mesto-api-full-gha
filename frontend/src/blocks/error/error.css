@@ -1,0 +1,8 @@
+.error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 0.8;
+  color: red;
+  box-sizing: border-box;
+  position: absolute;
+}
