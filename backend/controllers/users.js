@@ -7,9 +7,7 @@ const NotFoundError = require('../errors/NotFound');
 const ConflictError = require('../errors/Conflict');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
-const {
-  CREATED_STATUS_CODE,
-} = require('../utils/errors');
+const { CREATED_STATUS_CODE } = require('../utils/errors');
 
 function getUsers(req, res, next) {
   return User.find({})
@@ -61,12 +59,10 @@ function createUser(req, res, next) {
         password: hash,
       })
         .then(() => res.status(CREATED_STATUS_CODE).send({
-          data: {
-            name,
-            about,
-            avatar,
-            email,
-          },
+          name,
+          about,
+          avatar,
+          email,
         }))
         .catch((err) => {
           if (err.name === 'ValidationError') {
@@ -105,7 +101,11 @@ function updateUserInfo(req, res, next) {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
+        next(
+          new BadRequestError(
+            'Переданы некорректные данные при обновлении профиля'
+          )
+        );
         return;
       }
       next(err);
@@ -128,7 +128,11 @@ function updateUserAvatar(req, res, next) {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError('Переданы некорректные данные при обновлении аватара'));
+        next(
+          new BadRequestError(
+            'Переданы некорректные данные при обновлении аватара'
+          )
+        );
         return;
       }
       next(err);
