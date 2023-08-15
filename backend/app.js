@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors, Joi, celebrate } = require('celebrate');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFound');
@@ -15,6 +17,11 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+
 mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
   useNewUrlParser: true,
 });
@@ -22,6 +29,8 @@ mongoose.connect('mongodb://0.0.0.0:27017/mestodb', {
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({ origin: ['http://localhost:3001', 'https://askario.nomoreparties.co'], credentials: true }));
+app.use(helmet());
+app.use(limiter);
 
 app.use(requestLogger);
 
