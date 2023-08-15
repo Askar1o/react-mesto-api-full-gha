@@ -150,7 +150,7 @@ function login(req, res, next) {
           httpOnly: true,
           sameSite: true,
         })
-        .send({ data: token });
+        .send(user.toJSON());
     })
     .catch((err) => {
       if (err.name === 'Error') {
