@@ -1,26 +1,12 @@
 /* eslint-disable */
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import * as auth from "../utils/auth";
 
-function Login({ handleLogin, handleInfoTooltip }) {
+function Login({ handleLogin }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    auth
-      .login(password, email)
-      .then((data) => {
-        setEmail(email);
-        localStorage.setItem("token", data.token);
-        handleLogin();
-        navigate("/");
-      })
-      .catch((err) => {
-        console.log(err);
-        handleInfoTooltip(false);
-      });
+    handleLogin(password, email);
   }
   return (
     <div className="login">

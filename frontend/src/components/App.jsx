@@ -72,10 +72,30 @@ function App() {
       .catch(() => setIsLoggedIn(false));
   };
 
+  const handleLogin = (password, email) => {
+    auth
+      .login(password, email)
+      .then((data) => {
+        setIsLoggedIn(true);
+        setCurrentUser(data);
+        setEmail(data.email);
+        navigate("/")
+      })
+      .catch((err) => {
+        console.log(err);
+        handleInfoTooltip(false);
+      })
+  }
+
   const handleSignOut = () => {
-    auth.signOut(email);
-    setIsLoggedIn(false);
-    navigate("/sign-in");
+    auth.signOut(email)
+    .then(() => {
+      setIsLoggedIn(false);
+      navigate("/sign-in");
+    })
+    .catch((err) => {
+      setIsInfoTooltip(false);
+    });
   }
 
   function handleInfoTooltip(result) {
@@ -187,8 +207,7 @@ function App() {
               path="/sign-in"
               element={
                 <Login
-                  handleInfoTooltip={handleInfoTooltip}
-                  handleLogin={() => setIsLoggedIn(true)}
+                  handleLogin={handleLogin}
                 />
               }
             />

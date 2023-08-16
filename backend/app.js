@@ -67,7 +67,7 @@ app.post(
   createUser
 );
 
-app.delete('signOut', signOut);
+app.use('/signout', signOut);
 
 app.use(auth);
 

@@ -34,14 +34,11 @@ export const login = (password, email) => {
 
 export const signOut = (email) => {
   return fetch(`${BASE_URL}/signOut`, {
-    method: "DELETE",
+    method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      email,
-    }),
     credentials: 'include',
   }).then(checkResponse);
 };
