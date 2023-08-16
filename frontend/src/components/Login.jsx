@@ -12,6 +12,7 @@ function Login({ handleLogin, handleInfoTooltip }) {
     auth
       .login(password, email)
       .then((data) => {
+        setEmail(email);
         localStorage.setItem("token", data.token);
         handleLogin();
         navigate("/");

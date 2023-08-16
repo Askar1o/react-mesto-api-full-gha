@@ -3,12 +3,7 @@ import React from "react";
 import logoMesto from "../images/logo.svg";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 
-function Header({ email }) {
-  const navigate = useNavigate();
-  function handleSignOut() {
-    localStorage.removeItem("token");
-    navigate("/sign-in");
-  }
+function Header({ email, onSignOut }) {
   return (
     <header className="header">
       <img src={logoMesto} alt="Логотип Место" className="header__logo" />
@@ -34,7 +29,7 @@ function Header({ email }) {
           element={
             <nav className="navigate">
               <p className="navigate__email">{email}</p>
-              <button onClick={handleSignOut} className="navigate__button">
+              <button onClick={onSignOut} className="navigate__button">
                 Выйти
               </button>
             </nav>

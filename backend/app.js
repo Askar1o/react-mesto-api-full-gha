@@ -8,7 +8,7 @@ const { errors, Joi, celebrate } = require('celebrate');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { createUser, login } = require('./controllers/users');
+const { createUser, login, signOut, } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -66,6 +66,8 @@ app.post(
   }),
   createUser
 );
+
+app.delete('signOut', signOut);
 
 app.use(auth);
 

@@ -72,6 +72,12 @@ function App() {
       .catch(() => setIsLoggedIn(false));
   };
 
+  const handleSignOut = () => {
+    auth.signOut(email);
+    setIsLoggedIn(false);
+    navigate("/sign-in");
+  }
+
   function handleInfoTooltip(result) {
     setIsInfoTooltip({ ...isInfoTooltip, isOpen: true, successful: result });
   }
@@ -155,7 +161,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="root">
         <div className="page">
-          <Header email={email} />
+          <Header email={email} onSignOut={handleSignOut} />
           <Routes>
             <Route
               path="/"

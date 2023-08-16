@@ -32,6 +32,20 @@ export const login = (password, email) => {
   }).then(checkResponse);
 };
 
+export const signOut = (email) => {
+  return fetch(`${BASE_URL}/signOut`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+    }),
+    credentials: 'include',
+  }).then(checkResponse);
+};
+
 export const checkToken = () => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",

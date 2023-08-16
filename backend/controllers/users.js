@@ -165,6 +165,14 @@ function login(req, res, next) {
     });
 }
 
+function signOut(req, res, next) {
+  try {
+    res.clearCookie('jwt').send({ message: 'Вы успешно вышли из аккаунта' });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   getUsers,
   getUser,
@@ -172,5 +180,6 @@ module.exports = {
   updateUserInfo,
   updateUserAvatar,
   login,
+  signOut,
   findUserMe,
 };
